@@ -3,11 +3,16 @@
 // Utilities (margin, padding, opacity, constrains, etc)
 @import "utilities";
 
+// Image styling
+@import "images";
+
 @import "./components/button";
+@import "./components/input";
 
 html,
 body {
   height: 100vh;
+  font-family: Helvetica, sans-serif;
 }
 
 body {
@@ -22,13 +27,13 @@ body {
 }
 
 .page-header {
-  background-color: white;
-  height: 70px;
+  background-color: $primary;
+  height: 50px;
 }
 
 .page-footer {
   background-color: white;
-  height: 100px;
+  height: 50px;
 }
 
 .page-main {

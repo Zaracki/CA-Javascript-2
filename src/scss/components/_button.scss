@@ -1,8 +1,33 @@
-.btn {
+@mixin btn() {
+text-decoration: none;
+cursor: pointer;
 width: 240px;
 height: 45px;
 padding: 12px 0px 11px 0px;
 border-radius: 25px;
-background: #E69023;
+background: $primary;
 border: none;
+color: $white;
+font-size: 18px
+}
+
+.btn {
+  @include btn;
+}
+
+.btn-primary {
+  @include btn();
+  &:hover {
+    background-color: lighten($primary, 5);
+  }
+}
+
+.btn-primary-outlined {
+  @include btn();
+  border: 2px solid $white;
+  background-color: transparent;
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
 }
