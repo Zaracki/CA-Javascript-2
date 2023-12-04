@@ -14,6 +14,14 @@
   color: $white;
 }
 
+.constrain-content-feed {
+  width: 100%;
+  max-width: 493px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
 .col {
   display: flex;
   flex-direction: column;
@@ -39,6 +47,10 @@
 
 .justify-sb {
   justify-content: space-between;
+}
+
+.d-flex {
+  display: flex;
 }
 
 // Width & heights
