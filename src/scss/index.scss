@@ -9,6 +9,8 @@
 @import "./components/button";
 @import "./components/input";
 
+@import "./components/card";
+
 html,
 body {
   height: 100vh;
@@ -17,6 +19,20 @@ body {
 
 body {
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0px;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 12px;
 }
 
 .page-wrapper {

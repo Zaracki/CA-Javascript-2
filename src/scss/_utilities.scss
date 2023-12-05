@@ -14,7 +14,7 @@
   color: $white;
 }
 
-.constrain-content-feed {
+.constrain-content {
   width: 100%;
   max-width: 493px;
   margin: 0 auto;
@@ -63,11 +63,25 @@
   width: 100%;
 }
 
-// Margin
+// Margin-top
+
+.mt-0 {
+  margin-top: 0px;
+}
 
 .mt-1 {
   margin-top: 5px;
 }
+
+.mt-2 {
+  margin-top: 10px;
+}
+
+.mt-3 {
+  margin-top: 20px;
+}
+
+// Margin-bottom
 
 .mb-1 {
   margin-bottom: 5px;
