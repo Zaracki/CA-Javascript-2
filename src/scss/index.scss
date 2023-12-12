@@ -1,0 +1,57 @@
+@import "variables";
+
+// Utilities (margin, padding, opacity, constrains, etc)
+@import "utilities";
+
+// Image styling
+@import "images";
+
+@import "./components/button";
+@import "./components/input";
+
+@import "./components/card";
+
+html,
+body {
+  height: 100vh;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0px;
+}
+
+h3 {
+  font-size: 12px;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(180deg, #E69023 0%, #BF5002 100%), #FFF;
+}
+
+.page-header {
+  background-color: $primary;
+  height: 50px;
+}
+
+.page-footer {
+  background-color: white;
+  height: 50px;
+}
+
+.page-main {
+  flex-grow: 1;
+}
+
+.feed-info-box {
+  background-color: $lightgrey;
+}
