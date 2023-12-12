@@ -6,6 +6,7 @@
   <title>Register | Tangy</title>
   <link rel="stylesheet" href="../dist/css/index.css">
   <link rel="icon" type="image/x-icon" href="../images/Favicon-img.png">
+  <script type="module" defer src="/js/handlers/register.mjs"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -19,22 +20,22 @@
     <main class="page-main">
       <div class="constrain-container-form col">
         <img src="../images/Logo-main.png" class="logo-login mb-3">
-        <form class="col">
+        <form class="col" id="registerForm" method="get" action="(/auth/register)">
           <div class="col">
             <label for="name">Name:</label>
-            <input name="name" type="text" class="input mt-1 mb-2">
+            <input name="name" type="text" class="input mt-1 mb-2" required value="tytyttyty">
           </div>
           <div class="col">
-            <label for="password">Email:</label>
-            <input name="password" type="text" class="input mt-1 mb-2">
+            <label for="email">Email:</label>
+            <input name="email" type="email" class="input mt-1 mb-2" required value="@noroff.no">
           </div>
           <div class="col">
             <label for="password">Password:</label>
-            <input name="password" type="text" class="input mt-1 mb-4">
+            <input name="password" type="password" class="input mt-1 mb-4" required minlength="8" value="12345678">
           </div>
           <button class="btn-primary mb-2">Create</button>
-          <button class="btn-primary-outlined">Back</button>
         </form>          
+        <button class="btn-primary-outlined">Back</button>
       </div>
     </main>
     <footer class="page-footer">

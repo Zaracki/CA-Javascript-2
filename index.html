@@ -6,6 +6,7 @@
   <title>Login | Tangy</title>
   <link rel="stylesheet" href="./dist/css/index.css">
   <link rel="icon" type="image/x-icon" href="./images/Favicon-img.png">
+  <script type="module" defer src="/js/handlers/login.mjs"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -19,14 +20,14 @@
     <main class="page-main">
       <div class="constrain-container-form col">
         <img src="/images/Logo-main.png" class="logo-login mb-3">
-        <form class="col">
+        <form class="col" id="loginForm">
           <div class="col">
-            <label for="name">Email:</label>
-            <input name="name" type="text" class="input mt-1 mb-2">
+            <label for="email">Email:</label>
+            <input name="email" type="email" class="input mt-1 mb-2" >
           </div>
           <div class="col">
             <label for="password">Password:</label>
-            <input name="password" type="text" class="input mt-1 mb-4">
+            <input name="password" type="password" class="input mt-1 mb-4" required >
           </div>
           <button class="btn-primary mb-2">Login</button>
           <button class="btn-primary-outlined">Register</button>
