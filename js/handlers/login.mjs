@@ -10,7 +10,6 @@ async function loginUser(user) {
     body: postBody,
   }); 
   console.log(myData);
-  console.log(postBody);
 }
 
 form.addEventListener("submit", (event) => {
@@ -21,4 +20,4 @@ form.addEventListener("submit", (event) => {
 
   loginUser(userLoginDetails)
 
-  })
+  });
