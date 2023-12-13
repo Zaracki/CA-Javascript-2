@@ -4,6 +4,7 @@ const postsContainer = document.querySelector("#posts-display");
 
 function generatePostHtml(post) {
   const {title, body, media} = post;
+  
   const postCard = document.createElement("div");
   postCard.className = "card mt-3";
 
@@ -29,6 +30,7 @@ function generatePostHtml(post) {
   }
 
   postCard.appendChild(postContain);
+
   return postCard;
 };
 
