@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../dist/css/index.css">
   <link rel="icon" type="image/x-icon" href="../images/Favicon-img.png">
   <script src="https://kit.fontawesome.com/c7b67ab2c9.js" crossorigin="anonymous"></script>
+  <script type="module" defer src="/js/home-feed.mjs"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -19,7 +20,7 @@
         <p class="justify-right">right</p>
       </div>
     </header>
-    <main class="page-main">
+    <main>
       <div class="feed-info-box">
         <div class="constrain-content col">
           <form class="width-responsive mt-2">
@@ -40,13 +41,12 @@
           </div>
         </div>        
       </div>
-      <div class="constrain-content">
+      <div id="posts-display" class="constrain-content">
         <div class="card mt-3">
-          <div class="row d-flex align-items-center justify-left mb-1">
-            <h2 class="card-username">Daniel Tilit</h2>
-          </div>
-          <div>
-            <p class="mt-0 mb-1 justify-left">Sushi is my go-to because it's like a little gift, wrapped up in seaweed and filled with surprises! It's 'rice' to the occasion every time. 🍣🎁 #SushiLove #FoodieGifts #RollWithIt</p>
+          <div class="col d-flex justify-left mb-1">
+            <h2 class="mb-1">Daniel Tilit</h2>
+            <p class="mt-0 mb-1">Sushi is my go-to because it's like a little gift, wrapped up in seaweed and filled with surprises! It's 'rice' to the occasion every time. 🍣🎁 #SushiLove #FoodieGifts #RollWithIt</p>
+            <img class="user-post-img" src="../images/Favicon-img.png">            
           </div>
         </div>
       </div>

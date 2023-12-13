@@ -13,7 +13,7 @@
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
   font-family: Helvetica, sans-serif;
 }
 
@@ -34,7 +34,7 @@ h3 {
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
   background: linear-gradient(180deg, #E69023 0%, #BF5002 100%), #FFF;
 }
 
@@ -46,11 +46,15 @@ h3 {
 .page-footer {
   background-color: white;
   height: 50px;
-  margin-top: auto;
+  margin-top: 40px;
 }
 
 .page-main {
   flex-grow: 1;
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  flex-direction: column; /* Stacks children vertically */
 }
 
 .feed-info-box {
