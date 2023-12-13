@@ -23,18 +23,18 @@
         <form class="col" id="loginForm">
           <div class="col">
             <label for="email">Email:</label>
-            <input name="email" type="email" class="input mt-1 mb-2" >
+            <input id="email" name="email" type="email" class="input mt-1 mb-2" value="inventory123@noroff.no">
           </div>
           <div class="col">
             <label for="password">Password:</label>
-            <input name="password" type="password" class="input mt-1 mb-4" required >
+            <input name="password" type="password" class="input mt-1 mb-4" required value="12345678">
           </div>
           <button class="btn-primary mb-2">Login</button>
-          <button class="btn-primary-outlined">Register</button>
-        </form>          
+        </form>
+        <button class="btn-primary-outlined" onclick="location.href='register/index.html'">Register</button>         
       </div>
     </main>
-    <footer class="page-footer">
+    <footer">
 
     </footer>    
   </div>

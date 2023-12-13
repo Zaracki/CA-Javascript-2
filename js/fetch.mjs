@@ -1,9 +1,20 @@
-export async function apiCall(url, options = {method: "POST"}) {
+import { getFromLocalStorage } from "./utils.mjs/localStorage.mjs";
+
+export async function makeRequest(url, options = {method: "POST"}, shouldUseAuth = false) {
   try {
-    const fetchOptions = {
+    let fetchOptions = {
       ...options, 
       headers: {  'Content-Type': 'application/json' },
     };
+
+    if (shouldUseAuth) {
+      const accessToken = getFromLocalStorage("accessToken");
+      fetchOptions.headers = {
+        ...fetchOptions.headers,
+        Authorization: `Bearer ${accessToken}`, 
+        };
+      }
+
     const respons = await fetch(url, fetchOptions);
     const json = await respons.json();
     return json;
@@ -11,3 +22,4 @@ export async function apiCall(url, options = {method: "POST"}) {
     console.error("Something went wrong..")
   }
 }
+
