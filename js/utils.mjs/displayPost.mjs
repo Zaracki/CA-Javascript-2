@@ -2,8 +2,6 @@ import { generatePostHtml } from "./generatePost.mjs";
 
 const postsContainer = document.querySelector("#posts-display");
 
-
-
 async function displayPosts(posts) {
   console.log(posts);
   postsContainer.textContent = "";

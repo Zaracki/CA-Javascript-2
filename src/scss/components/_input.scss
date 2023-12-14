@@ -19,6 +19,7 @@
 
 .search {
   @include input-field;
+  padding-right: 5px;
 }
 
 .text-input {
