@@ -1,4 +1,4 @@
-function generatePostHtml(post) {
+function generatePostHtml(post, isAuthor = false) {
   const {title, body, media} = post;
   
   const postCard = document.createElement("div");
@@ -15,8 +15,19 @@ function generatePostHtml(post) {
   postBody.className = "mt-0 mb-1";
   postBody.textContent = body;
 
+  const editButton = document.createElement("a")
+  editButton.textContent = "Edit";
+  editButton.addEventListener("click", () => {
+    window.location.href = `edit/?id=${post.id}`;
+  });
+
   postContain.appendChild(postTitle);
   postContain.appendChild(postBody);
+
+  // if (isAuthor === true) {
+    postContain.appendChild(editButton); 
+  // }
+  
 
   const image = document.createElement("img")
   if (media) {
