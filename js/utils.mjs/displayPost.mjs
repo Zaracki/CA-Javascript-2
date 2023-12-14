@@ -4,7 +4,6 @@ import { getFromLocalStorage } from "./localStorage.mjs";
 const postsContainer = document.querySelector("#posts-display");
 
 async function displayPosts(posts) {
-  console.log(posts);
   if (postsContainer) {
     postsContainer.textContent = "";
     const username = getFromLocalStorage("username");

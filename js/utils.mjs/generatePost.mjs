@@ -1,13 +1,16 @@
 import { deletePost } from "./deletePost.mjs";
 
 function generatePostHtml(post, isAuthor = false) {
-  const {id, title, body, media, author} = post;
-  
+  const {id, title, body, media} = post;
+
   const postCard = document.createElement("div");
   postCard.className = "card mt-3";
 
   const postContain = document.createElement("div");
   postContain.className = "col d-flex justify-left mb-1";
+
+  const postLink = document.createElement("a");
+  postLink.href = `post/?id=${post.id}`;
 
   const postTitle = document.createElement("h2")
   postTitle.className = "mb-1 text-break";
@@ -17,7 +20,8 @@ function generatePostHtml(post, isAuthor = false) {
   postBody.className = "mt-0 mb-1 text-break";
   postBody.textContent = body;
 
-  postContain.appendChild(postTitle);
+  postLink.appendChild(postTitle);
+  postContain.appendChild(postLink);
   postContain.appendChild(postBody);
 
   if (isAuthor === true) {
