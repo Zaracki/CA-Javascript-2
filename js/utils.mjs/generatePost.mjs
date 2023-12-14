@@ -1,5 +1,13 @@
+import { makeRequest } from "../fetch.mjs";
+import { POSTS_API_URL } from "../constants.mjs";
+
+function deletePost (id) {
+  makeRequest(`${POSTS_API_URL}/${id}`, { method: "DELETE"
+}, true)
+}
+
 function generatePostHtml(post, isAuthor = false) {
-  const {title, body, media} = post;
+  const {id, title, body, media} = post;
   
   const postCard = document.createElement("div");
   postCard.className = "card mt-3";
@@ -8,11 +16,11 @@ function generatePostHtml(post, isAuthor = false) {
   postContain.className = "col d-flex justify-left mb-1";
 
   const postTitle = document.createElement("h2")
-  postTitle.className = "mb-1";
+  postTitle.className = "mb-1 text-break";
   postTitle.textContent = title;
 
   const postBody = document.createElement("p")
-  postBody.className = "mt-0 mb-1";
+  postBody.className = "mt-0 mb-1 text-break";
   postBody.textContent = body;
 
   const editButton = document.createElement("a")
@@ -21,11 +29,18 @@ function generatePostHtml(post, isAuthor = false) {
     window.location.href = `edit/?id=${post.id}`;
   });
 
+  const deleteButton = document.createElement("a")
+  deleteButton.textContent = "Delete";
+  deleteButton.addEventListener("click", () => {
+    deletePost(id);
+  });
+
   postContain.appendChild(postTitle);
   postContain.appendChild(postBody);
 
   // if (isAuthor === true) {
     postContain.appendChild(editButton); 
+    postContain.appendChild(deleteButton); 
   // }
   
 
