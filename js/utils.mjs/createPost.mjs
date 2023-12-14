@@ -5,8 +5,11 @@ import { POSTS_API_URL } from "../constants.mjs";
 export async function handlePostSubmit(event) {
   event.preventDefault(); 
 
-  const title = document.getElementById('postTitle').value;
-  const content = document.getElementById('postContent').value;
+  const titleElement = document.getElementById('postTitle');
+  const contentElement = document.getElementById('postContent');
+
+  const title = titleElement.value;
+  const content = contentElement.value; 
 
   const postData = {
     title: title,
@@ -21,6 +24,11 @@ export async function handlePostSubmit(event) {
     }, true);
 
     console.log(response); 
+
+    titleElement.value = '';
+    contentElement.value = '';
+
+
   } catch (error) {
     console.error('Error creating post:', error);
  
