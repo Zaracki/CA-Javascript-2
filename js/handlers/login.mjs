@@ -53,10 +53,6 @@ async function loginUser(user) {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  /*
-  const form = event.target;
-  const formData = new FormData(form)
-  */
   const formData = new FormData(event.target);
   const userLoginDetails = Object.fromEntries(formData.entries())
 

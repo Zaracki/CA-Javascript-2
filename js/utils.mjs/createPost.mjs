@@ -17,9 +17,6 @@ export async function handlePostSubmit(event) {
   try {
     const response = await makeRequest(POSTS_API_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
       body: JSON.stringify(postData)
     }, true);
 
