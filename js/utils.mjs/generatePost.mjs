@@ -1,13 +1,7 @@
-import { makeRequest } from "../fetch.mjs";
-import { POSTS_API_URL } from "../constants.mjs";
-
-function deletePost (id) {
-  makeRequest(`${POSTS_API_URL}/${id}`, { method: "DELETE"
-}, true)
-}
+import { deletePost } from "./deletePost.mjs";
 
 function generatePostHtml(post, isAuthor = false) {
-  const {id, title, body, media} = post;
+  const {id, title, body, media, author} = post;
   
   const postCard = document.createElement("div");
   postCard.className = "card mt-3";
@@ -23,25 +17,26 @@ function generatePostHtml(post, isAuthor = false) {
   postBody.className = "mt-0 mb-1 text-break";
   postBody.textContent = body;
 
-  const editButton = document.createElement("a")
-  editButton.textContent = "Edit";
-  editButton.addEventListener("click", () => {
-    window.location.href = `edit/?id=${post.id}`;
-  });
-
-  const deleteButton = document.createElement("a")
-  deleteButton.textContent = "Delete";
-  deleteButton.addEventListener("click", () => {
-    deletePost(id);
-  });
-
   postContain.appendChild(postTitle);
   postContain.appendChild(postBody);
 
-  // if (isAuthor === true) {
+  if (isAuthor === true) {
+
+    const editButton = document.createElement("a")
+    editButton.textContent = "Edit";
+    editButton.addEventListener("click", () => {
+      window.location.href = `edit/?id=${post.id}`;
+    });
+
+    const deleteButton = document.createElement("a")
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", () => {
+      deletePost(id);
+    });
+
     postContain.appendChild(editButton); 
     postContain.appendChild(deleteButton); 
-  // }
+  }
   
 
   const image = document.createElement("img")

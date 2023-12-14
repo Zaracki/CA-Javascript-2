@@ -25,7 +25,9 @@ async function loginUser(user) {
     false
     );
     const token = myData.accessToken;
+    const username = myData.name;
     addToLocalStorage("accessToken", token);
+    addToLocalStorage("username", username);
     window.location.href = "/feed";
   } catch (error) {
     console.log("Failed Login");

@@ -1,5 +1,6 @@
 import { makeRequest } from "../fetch.mjs";
 import { POSTS_API_URL } from "../constants.mjs";
+import { refreshFeed } from "../home-feed.mjs";
 
 
 export async function handlePostSubmit(event) {
@@ -28,6 +29,7 @@ export async function handlePostSubmit(event) {
     titleElement.value = '';
     contentElement.value = '';
 
+    refreshFeed();
 
   } catch (error) {
     console.error('Error creating post:', error);
