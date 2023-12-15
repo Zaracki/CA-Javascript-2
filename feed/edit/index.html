@@ -14,19 +14,19 @@
     <header class="page-header">
       <div class="constrain-container row justify-sb">
         <a href="../index.html" style="margin: auto 0px auto 20px; color: white;" style="cursor: pointer;">
-          <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+          <i class="fa-solid fa-arrow-left fa-lg"></i>
         </a>
         <img src="../images/Logo-second.png" class="logo-header justify-center mt-1">
         <p class="justify-right">right</p>
       </div>
     </header>
-    <main>
+    <main class="page-main">
       <div class="feed-info-box">
         <div class="constrain-content col">
           <form id="createPostForm" class="width-responsive mt-2">
             <div class="d-flex col mb-3">
-              <input id="postTitle" placeholder="Title" class="search">
-              <textarea id="postContent" class="search text-input" placeholder="Share your thoughts"></textarea>
+              <input id="postTitle" aria-label="Edit title" placeholder="Edit title" class="search">
+              <textarea id="postContent" class="search text-input" aria-label="Edit post content" placeholder="Edit post content"></textarea>
               <button type="submit" class="btn-create">Edit post</button>
             </div>
           </form>
