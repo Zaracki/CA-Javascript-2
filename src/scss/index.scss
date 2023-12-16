@@ -41,6 +41,9 @@ h3 {
 .page-header {
   background-color: $primary;
   height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .page-footer {

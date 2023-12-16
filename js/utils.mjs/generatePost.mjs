@@ -33,6 +33,7 @@ function generatePostHtml(post, isAuthor = false) {
     });
 
     const deleteButton = document.createElement("a")
+    deleteButton.className = "delete-post"
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", () => {
       deletePost(id);
