@@ -1,3 +1,12 @@
+/**
+ * Generates HTML content for a single post.
+ * Creates a card-like element containing the post's title, body, and media (if available).
+ *
+ * @function generateSinglePostHtml
+ * @param {Object} post - The post object containing details such as title, body, and media.
+ * @returns {HTMLElement} The DOM element representing the post.
+ */
+
 function generateSinglePostHtml(post) {
   const {title, body, media} = post;
 

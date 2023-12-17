@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover and create your post to Tangy.">
   <title>Post | Tangy</title>
   <link rel="stylesheet" href="../dist/css/index.css">
   <link rel="icon" type="image/x-icon" href="../images/Favicon-img.png">
@@ -13,13 +14,16 @@
 <body>
   <div class="page-wrapper">
     <header class="page-header">
-      <div class="constrain-container row justify-sb">
-        <a id="logoutButton" href="../index.html" class="btn-icon">
-          <i class="fa-solid fa-right-from-bracket fa-lg"></i>
-        </a>
+      <nav class="constrain-container row justify-sb align-items-center">
+        <ul class="pad-0">
+          <li>
+            <a id="logoutButton" href="../index.html" class="btn-icon">
+              <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+            </a>
+          </li>
+        </ul>
         <img src="../images/Logo-second.png" class="logo-header" alt="Tangy logo">
-      
-      </div>
+      </nav>
     </header>
     <main class="page-main">
       <h1 class="visually-hidden">Feed</h1>
@@ -32,24 +36,23 @@
               <button type="submit" class="btn-create">Create post</button>
             </div>
           </form>
-          <hr class="mb-3" style="border: 1px solid rgba(128, 128, 128, 0.261); width: 100%;">
-          <div class="row" style="width: 100%;">
-            <input id="searchInput" placeholder="Search" class="search width-responsive" style="margin-right: 25px;">
+          <hr class="mb-3">
+          <div class="row width-responsive">
+            <input id="searchInput" placeholder="Search" class="search width-responsive mr-3">
             <select id="mySelect" aria-label="Search" class="search">
               <option>Newest</option>
               <option>Oldest</option>
             </select>
           </div>
-          <div id="errorMessage" class="error-message mb-2" style="display:none;"></div>
+          <div id="errorMessage" class="error-message mb-2"></div>
         </div>        
       </div>
       <div id="posts-display" class="constrain-content">
       </div>
     </main>
-    <footer class="page-footer">
-
-    </footer>    
+    <footer class="page-footer d-flex align-items-center justify-center">
+      <p>© 2020 Copyright: Tangy</p>
+    </footer> 
   </div>
-
 </body>
 </html>

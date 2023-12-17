@@ -14,7 +14,6 @@ import { displayErrorMessage } from "./displayError.mjs";
  */
 async function deletePost(id) {
   try {
-    // Attempts to make a DELETE request to the server for the specified post ID.
     const myData = await makeRequest(`${POSTS_API_URL}/${id}`, { method: "DELETE" }, true);
     if (myData.ok) {   
        refreshFeed();

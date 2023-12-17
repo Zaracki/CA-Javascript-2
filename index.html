@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login to Tangy, your place for fresh and exciting socializing.">
   <title>Login | Tangy</title>
   <link rel="stylesheet" href="./dist/css/index.css">
   <link rel="icon" type="image/x-icon" href="./images/Favicon-img.png">
@@ -10,11 +11,6 @@
 </head>
 <body>
   <div class="page-wrapper">
-    <header class="page-header">
-      <div class="constrain-container row justify-sb">
-        <img src="./images/Logo-second.png" class="logo-header justify-center" alt="Tangy logo">
-      </div>
-    </header>
     <main class="page-main align-items-center justify-center">
       <h1 class="visually-hidden">Login</h1>
       <div class="constrain-container-form col">
@@ -28,16 +24,12 @@
             <label for="password">Password:</label>
             <input name="password" type="password" class="input mt-1" required>
           </div>
-          <div id="errorMessage" class="error-message mt-2" style="display:none;"></div>
+          <div id="errorMessage" class="error-message mt-2"></div>
           <button class="btn-primary mt-4 mb-2">Login</button>
         </form>
         <button class="btn-primary-outlined" onclick="location.href='register/index.html'">Register</button>         
       </div>
-    </main>
-    <footer class="page-footer">
-
-    </footer>    
+    </main>    
   </div>
-
 </body>
 </html>

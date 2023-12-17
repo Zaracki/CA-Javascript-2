@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edit your post at Tangy">
   <title>Edit | Tangy</title>
   <link rel="stylesheet" href="../../dist/css/index.css">
   <link rel="icon" type="image/x-icon" href="../../images/Favicon-img.png">
@@ -12,14 +13,19 @@
 <body>
   <div class="page-wrapper">
     <header class="page-header">
-      <div class="constrain-container row justify-sb">
-        <a href="../index.html" class="btn-icon">
-          <i class="fa-solid fa-arrow-left fa-lg"></i>
-        </a>
-        <img src="../../images/Logo-second.png" class="logo-header justify-center" alt="Tangy logo">
-      </div>
+      <nav class="constrain-container row justify-sb align-items-center">
+        <ul class="pad-0">
+          <li>
+            <a href="../index.html" class="btn-icon">
+              <i class="fa-solid fa-arrow-left fa-lg"></i>
+            </a>
+          </li>
+        </ul>
+        <img src="../../images/Logo-second.png" class="logo-header" alt="Tangy logo">
+      </nav>
     </header>
     <main class="page-main">
+      <h1 class="visually-hidden">Edit post</h1>
       <div class="feed-info-box">
         <div class="constrain-content col">
           <form id="createPostForm" class="width-responsive mt-2">
@@ -27,16 +33,15 @@
               <input id="postTitle" aria-label="Edit title" placeholder="Edit title" class="search">
               <textarea id="postContent" class="search text-input" aria-label="Edit post content" placeholder="Edit post content"></textarea>
               <button type="submit" class="btn-create">Edit post</button>
-              <div id="errorMessage" class="error-message mt-2" style="display:none;"></div>
+              <div id="errorMessage" class="error-message mt-2"></div>
             </div>
           </form>
         </div>        
       </div>
     </main>
-    <footer class="page-footer">
-
-    </footer>    
+    <footer class="page-footer d-flex align-items-center justify-center">
+      <p>© 2020 Copyright: Tangy</p>
+    </footer> 
   </div>
-
 </body>
 </html>

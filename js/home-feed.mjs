@@ -2,9 +2,7 @@ import { POSTS_API_URL } from "./constants.mjs";
 import { attachPostSubmitListener } from "./utils.mjs/createPost.mjs";
 import { makeRequest } from "./fetch.mjs";
 import { debounce } from "./utils.mjs/debounce.mjs";
-import { displayLogin } from "./utils.mjs/displayLogin.mjs";
 import { displayPosts } from "./utils.mjs/displayPost.mjs";
-import { checkUserLoggedIn } from "./utils.mjs/isLoggedIn.mjs";
 import { displayErrorMessage } from "./utils.mjs/displayError.mjs";
 
 

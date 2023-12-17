@@ -11,7 +11,6 @@ async function registerUser(user) {
       method: "POST",
       body: postBody,
     });
-    console.log(myData);
     if (myData.ok) {
       window.location.href = "../index.html";
     } else {
