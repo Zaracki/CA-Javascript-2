@@ -8,12 +8,13 @@
   <link rel="icon" type="image/x-icon" href="../images/Favicon-img.png">
   <script src="https://kit.fontawesome.com/c7b67ab2c9.js" crossorigin="anonymous"></script>
   <script type="module" defer src="/js/home-feed.mjs"></script>
+  <script type="module" defer src="/js/utils.mjs/logout.mjs"></script>
 </head>
 <body>
   <div class="page-wrapper">
     <header class="page-header">
       <div class="constrain-container row justify-sb">
-        <a href="../index.html" style="margin: auto 0px auto 20px; color: white;" style="cursor: pointer;">
+        <a id="logoutButton" href="../index.html" style="margin: auto 0px auto 20px; color: white;" style="cursor: pointer;">
           <i class="fa-solid fa-right-from-bracket fa-lg"></i>
         </a>
         <img src="../images/Logo-second.png" class="logo-header">
@@ -21,12 +22,13 @@
       </div>
     </header>
     <main class="page-main">
+      <h1 class="visually-hidden">Feed</h1>
       <div class="feed-info-box">
         <div class="constrain-content col">
           <form id="createPostForm" class="width-responsive mt-2">
             <div class="d-flex col">
-              <input id="postTitle" aria-label="Post title" placeholder="Title" class="search">
-              <textarea id="postContent" aria-label="Share your thoughts" class="search text-input" placeholder="Share your thoughts"></textarea>
+              <input id="postTitle" aria-label="Post title" placeholder="Title" class="search" required>
+              <textarea id="postContent" aria-label="Share your thoughts" class="search text-input" placeholder="Share your thoughts" required></textarea>
               <button type="submit" class="btn-create">Create post</button>
             </div>
           </form>
@@ -38,6 +40,7 @@
               <option>Oldest</option>
             </select>
           </div>
+          <div id="errorMessage" class="error-message mb-2" style="display:none;"></div>
         </div>        
       </div>
       <div id="posts-display" class="constrain-content">

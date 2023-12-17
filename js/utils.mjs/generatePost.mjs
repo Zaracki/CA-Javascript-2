@@ -17,7 +17,7 @@ function generatePostHtml(post, isAuthor = false) {
   postTitle.textContent = title;
 
   const postBody = document.createElement("p")
-  postBody.className = "mt-0 mb-1 text-break";
+  postBody.className = "mt-0 mb-2 text-break";
   postBody.textContent = body;
 
   postLink.appendChild(postTitle);
@@ -26,8 +26,11 @@ function generatePostHtml(post, isAuthor = false) {
 
   if (isAuthor === true) {
 
+    const buttonDiv = document.createElement("div");
+
     const editButton = document.createElement("a")
     editButton.textContent = "Edit";
+    editButton.className = "edit-post mr-1"
     editButton.addEventListener("click", () => {
       window.location.href = `edit/?id=${post.id}`;
     });
@@ -39,8 +42,9 @@ function generatePostHtml(post, isAuthor = false) {
       deletePost(id);
     });
 
-    postContain.appendChild(editButton); 
-    postContain.appendChild(deleteButton); 
+    buttonDiv.appendChild(editButton); 
+    buttonDiv.appendChild(deleteButton);
+    postContain.appendChild(buttonDiv);
   }
   
 

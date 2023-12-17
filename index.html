@@ -16,7 +16,7 @@
       </div>
     </header>
     <main class="page-main align-items-center justify-center">
-      <h1 class="visually-hidden">Loging page</h1>
+      <h1 class="visually-hidden">Login</h1>
       <div class="constrain-container-form col">
         <img src="/images/Logo-main.png" class="logo-login mb-3">
         <form class="col" id="loginForm">
@@ -28,6 +28,7 @@
             <label for="password">Password:</label>
             <input name="password" type="password" class="input mt-1 mb-4" required>
           </div>
+          <div id="errorMessage" class="error-message mb-2" style="display:none;"></div>
           <button class="btn-primary mb-2">Login</button>
         </form>
         <button class="btn-primary-outlined" onclick="location.href='register/index.html'">Register</button>         

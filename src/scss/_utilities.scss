@@ -74,6 +74,10 @@
   border-width: 0;
 }
 
+.error-message:empty {
+  display: none;
+}
+
 // Width & heights
 
 .width-responsive {
@@ -114,4 +118,22 @@
 
 .mb-4 {
   margin-bottom: 30px;
+}
+
+// Margin-right
+
+.mr-1 {
+  margin-right: 5px;
+}
+
+.mr-2 {
+  margin-right: 10px;
+}
+
+.mr-3 {
+  margin-right: 20px;
+}
+
+.mr-4 {
+  margin-right: 30px;
 }

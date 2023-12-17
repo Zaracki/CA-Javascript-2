@@ -11,19 +11,25 @@ function getPostId() {
 }
 
 export async function submitEditpost() {
-  const postData = {
-    title: title.value,
-    body: body.value,
-  };
-  const id = getPostId();
-  makeRequest(
-    `${POSTS_API_URL}/${id}`,
-    {
-      method: "PUT",
-      body: JSON.stringify(postData),
-    },
-    true,
-  );
+  try {
+    const postData = {
+      title: title.value,
+      body: body.value,
+    };
+    const id = getPostId();
+    await makeRequest(
+      `${POSTS_API_URL}/${id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(postData),
+      },
+      true,
+    );
+    window.location.href = "../index.html";
+  } catch (error) {
+    console.error("Error submitting edit post:", error);
+    // Additional error handling
+  }
 }
 
 PostForm.addEventListener("submit", async (event) => {

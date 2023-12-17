@@ -4,10 +4,12 @@ $primary: #E69023;
 $white: #fff;
 $black: #000000;
 $lightgrey: #F8F8F8;
+$red: #ff0f0f;
 
 // Hover
 
 $lighten-primary: lighten($primary, 5);
+$lighten-red: lighten($red, 9);
 
 // Width
 

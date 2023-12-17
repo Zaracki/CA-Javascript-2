@@ -5,22 +5,26 @@ import { debounce } from "./utils.mjs/debounce.mjs";
 import { displayLogin } from "./utils.mjs/displayLogin.mjs";
 import { displayPosts } from "./utils.mjs/displayPost.mjs";
 import { checkUserLoggedIn } from "./utils.mjs/isLoggedIn.mjs";
+import { displayErrorMessage } from "./utils.mjs/displayError.mjs";
 
 
 let postsArray = [];
 
 export async function refreshFeed() {
-  const isLoggedIn = checkUserLoggedIn();
-  if (isLoggedIn) {
-    const posts = await makeRequest(POSTS_API_URL + "?_author=true", { method: "GET" }, true);
-    
-    postsArray = posts
-    displayPosts(postsArray);
-  } else {
-    displayLogin();
+  try {
+    const isLoggedIn = checkUserLoggedIn();
+    if (isLoggedIn) {
+      const posts = await makeRequest(POSTS_API_URL + "?_author=true", { method: "GET" }, true);
+      
+      postsArray = posts;
+      displayPosts(postsArray);
+    } else {
+      displayLogin();
+    }
+  } catch (error) {
+    displayErrorMessage("An error has occured");
   }
 }
-
 
 //Sorting
 
