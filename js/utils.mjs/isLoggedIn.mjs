@@ -7,7 +7,7 @@
  */
 
 function checkUserLoggedIn() {
-  return !!localStorage.getItem("accessToken"); // Convert accessToken existence to boolean
+  return !!localStorage.getItem("accessToken");
 }
 
 export {  checkUserLoggedIn  };
