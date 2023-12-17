@@ -1,5 +1,16 @@
 import { deletePost } from "./deletePost.mjs";
 
+/**
+ * Generates HTML content for a given post.
+ * Creates a card-like element containing the post's title, body, and media (if available).
+ * If the user is the author of the post, edit and delete buttons are added.
+ *
+ * @function generatePostHtml
+ * @param {Object} post - The post object containing details like id, title, body, and media.
+ * @param {boolean} [isAuthor=false] - Flag indicating whether the current user is the author of the post.
+ * @returns {HTMLElement} The DOM element representing the post.
+ */
+
 function generatePostHtml(post, isAuthor = false) {
   const {id, title, body, media} = post;
 

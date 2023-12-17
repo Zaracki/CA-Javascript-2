@@ -31,9 +31,6 @@ export async function refreshFeed() {
   }
 }
 
-//Sorting
-
-
 const mySelectElement = document.getElementById('mySelect');
 if (mySelectElement) {
     mySelectElement.addEventListener('change', function() {
@@ -73,8 +70,6 @@ function sortByOldest() {
   displayPosts(postsArray);
 }
 
-
-//Search
 const searchInputElement = document.getElementById('searchInput');
 if (searchInputElement) {
     searchInputElement.addEventListener('input', debounce(searchPosts, 1000));
