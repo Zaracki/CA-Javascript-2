@@ -19,14 +19,7 @@ export async function makeRequest(
         };
       }
 
-    const respons = await fetch(url, fetchOptions);
-
-      if (!respons.ok) {
-        throw new Error("API call unsuccessful");
-      }
-
-    const json = await respons.json();
-    return json;
+    return await fetch(url, fetchOptions);
   } catch (error) {
     console.error("Something went wrong..")
   }

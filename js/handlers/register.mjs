@@ -12,13 +12,13 @@ async function registerUser(user) {
       body: postBody,
     });
     console.log(myData);
-    if ( myData !== undefined) {
+    if (myData.ok) {
       window.location.href = "../index.html";
     } else {
-      displayErrorMessage("Error registering")
+      displayErrorMessage("Registration failed")
     };
   } catch {
-    displayErrorMessage("Error registering")
+    displayErrorMessage("Registration failed")
   }
 }
 form.addEventListener("submit", (event) => {

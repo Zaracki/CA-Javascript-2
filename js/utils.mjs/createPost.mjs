@@ -20,21 +20,21 @@ export async function handlePostSubmit(event) {
   };
 
   try {
-    const response = await makeRequest(POSTS_API_URL, {
+    const myData = await makeRequest(POSTS_API_URL, {
       method: 'POST',
       body: JSON.stringify(postData)
     }, true);
 
-    console.log(response); 
+    if (myData.ok) {
+      titleElement.value = '';
+      contentElement.value = '';
 
-    titleElement.value = '';
-    contentElement.value = '';
-
-    refreshFeed();
-
+      refreshFeed();      
+    } else {
+      displayErrorMessage("Something went wrong creating the post")
+    }
   } catch {
     displayErrorMessage("Error creating post");
- 
   }
 }
 

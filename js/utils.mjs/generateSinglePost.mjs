@@ -1,5 +1,3 @@
-const resultsContainer = document.querySelector("#postContainer");
-
 function generateSinglePostHtml(post) {
   const {title, body, media} = post;
 

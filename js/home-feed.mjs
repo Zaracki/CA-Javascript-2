@@ -21,17 +21,15 @@ let postsArray = [];
 
 export async function refreshFeed() {
   try {
-    const isLoggedIn = checkUserLoggedIn();
-    if (isLoggedIn) {
-      const posts = await makeRequest(POSTS_API_URL + "?_author=true", { method: "GET" }, true);
-      
-      postsArray = posts;
+    const posts = await makeRequest(POSTS_API_URL + "?_author=true", { method: "GET" }, true);
+    if (posts.ok) {
+      postsArray = await posts.json();
       displayPosts(postsArray);
     } else {
-      displayLogin();
+      displayErrorMessage("Could not refresh feed")
     }
   } catch {
-    displayErrorMessage("An error has occured");
+    displayErrorMessage("Could not refresh feed");
   }
 }
 

@@ -15,10 +15,12 @@ import { displayErrorMessage } from "./displayError.mjs";
 async function deletePost(id) {
   try {
     // Attempts to make a DELETE request to the server for the specified post ID.
-    await makeRequest(`${POSTS_API_URL}/${id}`, { method: "DELETE" }, true);
-    
-    // Refreshes the feed to reflect the deletion.
-    refreshFeed();
+    const myData = await makeRequest(`${POSTS_API_URL}/${id}`, { method: "DELETE" }, true);
+    if (myData.ok) {   
+       refreshFeed();
+    } else {
+      displayErrorMessage("Error when deleting your post");
+    }
   } catch {
     displayErrorMessage("Error when deleting your post");
   }

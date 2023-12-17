@@ -17,8 +17,11 @@ function getIdFromUrl() {
 async function getSinglePost(id) {
   try {
     const data = await makeRequest(`${POSTS_API_URL}/${id}?_author=true`, { method: "GET" }, true);
-    console.log(data);
-    return data;
+    if (data.ok){
+      return await data.json();     
+    } else {
+      displayErrorMessage("Error fetching single post")
+    }
   } catch {
     displayErrorMessage("Error fetching single post")
     return null;

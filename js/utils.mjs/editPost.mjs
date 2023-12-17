@@ -18,7 +18,7 @@ export async function submitEditpost() {
       body: body.value,
     };
     const id = getPostId();
-    await makeRequest(
+    const myData = await makeRequest(
       `${POSTS_API_URL}/${id}`,
       {
         method: "PUT",
@@ -26,7 +26,11 @@ export async function submitEditpost() {
       },
       true,
     );
-    window.location.href = "../index.html";
+    if (myData.ok) {
+      window.location.href = "../index.html";      
+    } else {
+      displayErrorMessage("Error editing post");
+    }
   } catch {
     displayErrorMessage("Error editing post")
   }
@@ -41,9 +45,14 @@ async function getSinglePost(id) {
   try {
     const apiUrl = `${POSTS_API_URL}/${id}`;
     const currentPost = await makeRequest(apiUrl, { method: "GET" }, true);
-    return currentPost;
+    if (currentPost.ok) {
+      const json = await currentPost.json();
+      return json;
+    } else {
+      displayErrorMessage("Error displaying post")
+    }
   } catch {
-    displayErrorMessage("Error fetching post")
+    displayErrorMessage("Error displaying post")
   }
 }
 
@@ -59,7 +68,7 @@ async function main() {
     if (post) {
       populateFormWithPostData(post);
     } else {
-      // Handle the case where post is undefined or null
+      displayErrorMessage("Error editing post")
     }
   } catch {
     displayErrorMessage("Error editing post");
