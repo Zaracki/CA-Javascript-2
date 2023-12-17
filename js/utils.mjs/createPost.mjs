@@ -32,8 +32,8 @@ export async function handlePostSubmit(event) {
 
     refreshFeed();
 
-  } catch (error) {
-    displayErrorMessage("Error creating a post");
+  } catch {
+    displayErrorMessage("Error creating post");
  
   }
 }

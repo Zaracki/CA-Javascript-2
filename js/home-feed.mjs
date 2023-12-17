@@ -30,7 +30,7 @@ export async function refreshFeed() {
     } else {
       displayLogin();
     }
-  } catch (error) {
+  } catch {
     displayErrorMessage("An error has occured");
   }
 }
@@ -93,7 +93,7 @@ function searchPosts() {
     const searchText = document.getElementById('searchInput').value.toLowerCase();
     const filteredPosts = postsArray.filter(post => post.title.toLowerCase().includes(searchText));
     displayPosts(filteredPosts);
-  } catch (error) {
+  } catch {
     displayErrorMessage("Error occurred during search.");
   }
 }

@@ -1,5 +1,6 @@
 import { makeRequest } from "../fetch.mjs";
 import { POSTS_API_URL } from "../constants.mjs";
+import { displayErrorMessage } from "./displayError.mjs";
 
 const title = document.getElementById('postTitle');
 const body = document.getElementById('postContent');
@@ -26,9 +27,8 @@ export async function submitEditpost() {
       true,
     );
     window.location.href = "../index.html";
-  } catch (error) {
-    console.error("Error submitting edit post:", error);
-    // Additional error handling
+  } catch {
+    displayErrorMessage("Error editing post")
   }
 }
 
@@ -38,9 +38,13 @@ PostForm.addEventListener("submit", async (event) => {
 })
 
 async function getSinglePost(id) {
-  const apiUrl = `${POSTS_API_URL}/${id}`;
-  const currentPost = await makeRequest(apiUrl, {method: "GET"}, true);
-  return currentPost
+  try {
+    const apiUrl = `${POSTS_API_URL}/${id}`;
+    const currentPost = await makeRequest(apiUrl, { method: "GET" }, true);
+    return currentPost;
+  } catch {
+    displayErrorMessage("Error fetching post")
+  }
 }
 
 function populateFormWithPostData(post) {
@@ -48,10 +52,18 @@ function populateFormWithPostData(post) {
   body.value = post.body;
 }
 
-async function main () {
-  const postId = getPostId();
-  const post = await getSinglePost(postId);
-  populateFormWithPostData(post);
+async function main() {
+  try {
+    const postId = getPostId();
+    const post = await getSinglePost(postId);
+    if (post) {
+      populateFormWithPostData(post);
+    } else {
+      // Handle the case where post is undefined or null
+    }
+  } catch {
+    displayErrorMessage("Error editing post");
+  }
 }
 
 main();

@@ -15,11 +15,10 @@ async function registerUser(user) {
     if ( myData !== undefined) {
       window.location.href = "../index.html";
     } else {
-      displayErrorMessage("Something ")
+      displayErrorMessage("Error registering")
     };
-  } catch(error) {
-    // Handle the error here
-    displayErrorMessage("something went wrong " + error.toString())
+  } catch {
+    displayErrorMessage("Error registering")
   }
 }
 form.addEventListener("submit", (event) => {

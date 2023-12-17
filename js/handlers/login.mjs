@@ -25,34 +25,20 @@ async function loginUser(user) {
     },
     false
     );
+    if (myData !== undefined) {
     const token = myData.accessToken;
     const username = myData.name;
     addToLocalStorage("accessToken", token);
     addToLocalStorage("username", username);
-    window.location.href = "/feed";
+    window.location.href = "/feed";      
+    } else {
+      displayErrorMessage("Login failed")
+    }
+
   } catch (error) {
-    displayErrorMessage("Username or password is wrong")
+    displayErrorMessage("Login failed")
   }
 };
-
-/* async function loginUser(user) {
-  try {
-    const postBody = JSON.stringify(user);
-    const response = await makeRequest(LOGIN_API_URL, { 
-      method: "POST",
-      body: postBody,
-    });
-
-    if (response.accessToken) {
-      addToLocalStorage("accessToken", response.accessToken);
-    } else {
-      console.error("Access token not received");
-    }
-  } catch (error) {
-    console.error("Login failed:", error);
-  }
-}
-*/ 
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();

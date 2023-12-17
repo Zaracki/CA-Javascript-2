@@ -1,5 +1,6 @@
 import { POSTS_API_URL } from "./constants.mjs";
 import { makeRequest } from "./fetch.mjs";
+import { displayErrorMessage } from "./utils.mjs/displayError.mjs";
 import { generateSinglePostHtml } from "./utils.mjs/generateSinglePost.mjs";
 
 const resultsContainer = document.querySelector("#postContainer");
@@ -14,17 +15,30 @@ function getIdFromUrl() {
 }
 
 async function getSinglePost(id) {
-  const data = await makeRequest(`${POSTS_API_URL}/${id}?_author=true`, {method: "GET"}, true);
-  console.log(data)
-  return data;
+  try {
+    const data = await makeRequest(`${POSTS_API_URL}/${id}?_author=true`, { method: "GET" }, true);
+    console.log(data);
+    return data;
+  } catch {
+    displayErrorMessage("Error fetching single post")
+    return null;
+  }
 }
 
 async function generateSinglePost() {
-  const postId = getIdFromUrl();
-  if (postId) {
-   const post = await getSinglePost(postId); 
-   const currentSinglePost = generateSinglePostHtml(post);
-   resultsContainer.appendChild(currentSinglePost); 
+  try {
+    const postId = getIdFromUrl();
+    if (postId) {
+      const post = await getSinglePost(postId);
+      if (post) {
+        const currentSinglePost = generateSinglePostHtml(post);
+        resultsContainer.appendChild(currentSinglePost);
+      } else {
+        displayErrorMessage("Error retriving post")
+      }
+    }
+  } catch {
+    displayErrorMessage("Error retriving post")
   }
 }
 

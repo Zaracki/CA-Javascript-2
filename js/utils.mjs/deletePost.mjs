@@ -19,7 +19,7 @@ async function deletePost(id) {
     
     // Refreshes the feed to reflect the deletion.
     refreshFeed();
-  } catch (error) {
+  } catch {
     displayErrorMessage("Error when deleting your post");
   }
 }

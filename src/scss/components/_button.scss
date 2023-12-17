@@ -41,7 +41,12 @@ font-size: 18px
 }
 
 .btn-icon {
-  color: $primary;
+  color: $white;
+  margin: auto 0px auto 20px;
+  cursor: pointer;
+  &:hover {
+    color: $darken-white;
+  }
 }
 
 .btn-create {
