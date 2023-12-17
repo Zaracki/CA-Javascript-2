@@ -9,10 +9,11 @@ import { checkUserLoggedIn } from "./utils.mjs/isLoggedIn.mjs";
 
 let postsArray = [];
 
-async function main() {
+export async function refreshFeed() {
   const isLoggedIn = checkUserLoggedIn();
   if (isLoggedIn) {
-    const posts = await makeRequest(POSTS_API_URL, { method: "GET" }, true);
+    const posts = await makeRequest(POSTS_API_URL + "?_author=true", { method: "GET" }, true);
+    
     postsArray = posts
     displayPosts(postsArray);
   } else {
@@ -22,11 +23,14 @@ async function main() {
 
 
 //Sorting
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('mySelect').addEventListener('change', function() {
+
+
+const mySelectElement = document.getElementById('mySelect');
+if (mySelectElement) {
+    mySelectElement.addEventListener('change', function() {
     onSelected(this);
   });
-});
+};
 
 function onSelected(selection) {
   let value = selection.value;
@@ -49,7 +53,10 @@ function sortByOldest() {
 
 
 //Search
-document.getElementById('searchInput').addEventListener('input', debounce(searchPosts, 1000));
+const searchInputElement = document.getElementById('searchInput');
+if (searchInputElement) {
+    searchInputElement.addEventListener('input', debounce(searchPosts, 1000));
+}
 
 function searchPosts() {
   const searchText = document.getElementById('searchInput').value.toLowerCase();
@@ -59,4 +66,4 @@ function searchPosts() {
 
 
 attachPostSubmitListener();
-main();
+refreshFeed();

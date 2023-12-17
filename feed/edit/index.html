@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post | Tangy</title>
+  <title>Feed | Tangy</title>
   <link rel="stylesheet" href="../../dist/css/index.css">
-  <link rel="icon" type="image/x-icon" href="../../images/Favicon-img.png">
+  <link rel="icon" type="image/x-icon" href="../images/Favicon-img.png">
   <script src="https://kit.fontawesome.com/c7b67ab2c9.js" crossorigin="anonymous"></script>
-  <script type="module" defer src="../../js/singlePost.mjs"></script>
+  <script type="module" defer src="../../js/utils.mjs/editPost.mjs"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -20,7 +20,16 @@
       </div>
     </header>
     <main class="page-main">
-      <div id="postContainer" class="constrain-content">
+      <div class="feed-info-box">
+        <div class="constrain-content col">
+          <form id="createPostForm" class="width-responsive mt-2">
+            <div class="d-flex col mb-3">
+              <input id="postTitle" aria-label="Edit title" placeholder="Edit title" class="search">
+              <textarea id="postContent" class="search text-input" aria-label="Edit post content" placeholder="Edit post content"></textarea>
+              <button type="submit" class="btn-create">Edit post</button>
+            </div>
+          </form>
+        </div>        
       </div>
     </main>
     <footer class="page-footer">

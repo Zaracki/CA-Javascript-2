@@ -22,6 +22,11 @@
   align-items: center;
 }
 
+.text-break {
+  word-break: break-word;
+  overflow-wrap: break-word ;
+}
+
 .col {
   display: flex;
   flex-direction: column;
@@ -55,6 +60,18 @@
 
 .align-items-center {
   align-items: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 // Width & heights

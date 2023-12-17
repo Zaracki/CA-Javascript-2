@@ -41,10 +41,13 @@ h3 {
 .page-header {
   background-color: $primary;
   height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .page-footer {
-  background-color: white;
+  background-color: $white;
   height: 50px;
   margin-top: 40px;
 }
@@ -52,10 +55,10 @@ h3 {
 .page-main {
   flex-grow: 1;
   display: flex;
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-  flex-direction: column; /* Stacks children vertically */
+  flex-direction: column;
+  min-height: 100%;
 }
+
 
 .feed-info-box {
   background-color: $lightgrey;

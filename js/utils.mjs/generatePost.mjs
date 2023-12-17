@@ -1,22 +1,48 @@
-function generatePostHtml(post) {
-  const {title, body, media} = post;
-  
+import { deletePost } from "./deletePost.mjs";
+
+function generatePostHtml(post, isAuthor = false) {
+  const {id, title, body, media} = post;
+
   const postCard = document.createElement("div");
   postCard.className = "card mt-3";
 
   const postContain = document.createElement("div");
   postContain.className = "col d-flex justify-left mb-1";
 
+  const postLink = document.createElement("a");
+  postLink.href = `post/?id=${post.id}`;
+
   const postTitle = document.createElement("h2")
-  postTitle.className = "mb-1";
+  postTitle.className = "mb-1 text-break";
   postTitle.textContent = title;
 
   const postBody = document.createElement("p")
-  postBody.className = "mt-0 mb-1";
+  postBody.className = "mt-0 mb-1 text-break";
   postBody.textContent = body;
 
-  postContain.appendChild(postTitle);
+  postLink.appendChild(postTitle);
+  postContain.appendChild(postLink);
   postContain.appendChild(postBody);
+
+  if (isAuthor === true) {
+
+    const editButton = document.createElement("a")
+    editButton.textContent = "Edit";
+    editButton.addEventListener("click", () => {
+      window.location.href = `edit/?id=${post.id}`;
+    });
+
+    const deleteButton = document.createElement("a")
+    deleteButton.className = "delete-post"
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", () => {
+      deletePost(id);
+    });
+
+    postContain.appendChild(editButton); 
+    postContain.appendChild(deleteButton); 
+  }
+  
 
   const image = document.createElement("img")
   if (media) {
