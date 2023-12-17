@@ -1,0 +1,42 @@
+/**
+ * Generates HTML content for a single post.
+ * Creates a card-like element containing the post's title, body, and media (if available).
+ *
+ * @function generateSinglePostHtml
+ * @param {Object} post - The post object containing details such as title, body, and media.
+ * @returns {HTMLElement} The DOM element representing the post.
+ */
+
+function generateSinglePostHtml(post) {
+  const {title, body, media} = post;
+
+  const postCard = document.createElement("div");
+  postCard.className = "card mt-3";
+
+  const postContain = document.createElement("div");
+  postContain.className = "col d-flex justify-left mb-1";
+
+  const postTitle = document.createElement("h2")
+  postTitle.className = "mb-1 text-break";
+  postTitle.textContent = title;
+
+  const postBody = document.createElement("p")
+  postBody.className = "mt-0 mb-1 text-break";
+  postBody.textContent = body;
+
+  postContain.appendChild(postTitle);
+  postContain.appendChild(postBody);
+  
+  const image = document.createElement("img")
+  if (media) {
+    image.src = media;
+    image.className = "user-post-img";
+    postContain.appendChild(image);
+  }
+
+  postCard.appendChild(postContain);
+
+  return postCard;
+}
+
+export {generateSinglePostHtml};

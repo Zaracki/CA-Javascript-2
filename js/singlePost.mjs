@@ -1,5 +1,16 @@
 import { POSTS_API_URL } from "./constants.mjs";
 import { makeRequest } from "./fetch.mjs";
+import { displayErrorMessage } from "./utils.mjs/displayError.mjs";
+import { generateSinglePostHtml } from "./utils.mjs/generateSinglePost.mjs";
+
+const resultsContainer = document.querySelector("#postContainer");
+
+/**
+ * Extracts the post ID from the current URL's query parameters.
+ *
+ * @function getIdFromUrl
+ * @returns {string|null} The post ID if present in the URL, otherwise null.
+ */
 
 function getIdFromUrl() {
   const searchParams = new URLSearchParams(window.location.search);
@@ -10,54 +21,62 @@ function getIdFromUrl() {
   return null;
 }
 
-const resultsContainer = document.querySelector("#postContainer");
-
-function generateSinglePostHtml(post) {
-  const {title, body, media} = post;
-
-  const postCard = document.createElement("div");
-  postCard.className = "card mt-3";
-
-  const postContain = document.createElement("div");
-  postContain.className = "col d-flex justify-left mb-1";
-
-  const postTitle = document.createElement("h2")
-  postTitle.className = "mb-1 text-break";
-  postTitle.textContent = title;
-
-  const postBody = document.createElement("p")
-  postBody.className = "mt-0 mb-1 text-break";
-  postBody.textContent = body;
-
-  postContain.appendChild(postTitle);
-  postContain.appendChild(postBody);
-  
-  const image = document.createElement("img")
-  if (media) {
-    image.src = media;
-    image.className = "user-post-img";
-    postContain.appendChild(image);
-  }
-
-  postCard.appendChild(postContain);
-
-  return postCard;
-}
+/**
+ * Fetches a single post's data from the server using its ID.
+ *
+ * @async
+ * @function getSinglePost
+ * @param {string} id - The ID of the post to fetch.
+ * @returns {Promise<Object|null>} The post data as an object if successful, null otherwise.
+ * @throws {Error} Displays an error message if fetching the post fails.
+ */
 
 async function getSinglePost(id) {
-  const data = await makeRequest(`${POSTS_API_URL}/${id}?_author=true`, {method: "GET"}, true);
-  console.log(data)
-  return data;
-}
-
-async function generateSinglePost() {
-  const postId = getIdFromUrl();
-  if (postId) {
-   const post = await getSinglePost(postId); 
-   const currentSinglePost = generateSinglePostHtml(post);
-   resultsContainer.appendChild(currentSinglePost); 
+  try {
+    const data = await makeRequest(`${POSTS_API_URL}/${id}?_author=true`, { method: "GET" }, true);
+    if (data.ok){
+      return await data.json();     
+    } else {
+      displayErrorMessage("Error fetching single post")
+    }
+  } catch {
+    displayErrorMessage("Error fetching single post")
+    return null;
   }
 }
+
+/**
+ * Generates and displays the HTML for a single post.
+ * Retrieves the post data based on the ID obtained from the URL and uses it to generate the HTML.
+ *
+ * @async
+ * @function generateSinglePost
+ * @throws {Error} Displays an error message if there are issues in retrieving or displaying the post.
+ */
+
+async function generateSinglePost() {
+  try {
+    const postId = getIdFromUrl();
+    if (postId) {
+      const post = await getSinglePost(postId);
+      if (post) {
+        const currentSinglePost = generateSinglePostHtml(post);
+        resultsContainer.appendChild(currentSinglePost);
+      } else {
+        displayErrorMessage("Error retriving post")
+      }
+    }
+  } catch {
+    displayErrorMessage("Error retriving post")
+  }
+}
+
+/**
+ * Main function to be executed when the script loads.
+ * Initiates the process of fetching and displaying a single post.
+ *
+ * @function main
+ */
 
 function main() {
   generateSinglePost();

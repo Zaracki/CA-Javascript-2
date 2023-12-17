@@ -11,6 +11,14 @@ color: $white;
 font-size: 18px
 }
 
+@mixin utility-btn(){
+  cursor: pointer;
+  padding: 5px;
+  background-color: $red;
+  border-radius: 10px;
+  color: $white;
+}
+
 .btn {
   @include btn;
 }
@@ -33,7 +41,12 @@ font-size: 18px
 }
 
 .btn-icon {
-  color: $primary;
+  color: $white;
+  margin: auto 0px auto 20px;
+  cursor: pointer;
+  &:hover {
+    color: $darken-white;
+  }
 }
 
 .btn-create {
@@ -42,6 +55,21 @@ font-size: 18px
   height: 35px;
   padding-top: 8px;
   font-size: 16px;
+  &:hover {
+    background-color: $lighten-primary;
+  }
+}
+
+.delete-post{
+  @include utility-btn();
+  &:hover {
+    background-color: $lighten-red;
+  }
+}
+
+.edit-post{
+  @include utility-btn();
+  background-color: $primary;
   &:hover {
     background-color: $lighten-primary;
   }

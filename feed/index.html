@@ -3,50 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feed | Tangy</title>
+  <meta name="description" content="Discover and create your post to Tangy.">
+  <title>Post | Tangy</title>
   <link rel="stylesheet" href="../dist/css/index.css">
   <link rel="icon" type="image/x-icon" href="../images/Favicon-img.png">
   <script src="https://kit.fontawesome.com/c7b67ab2c9.js" crossorigin="anonymous"></script>
   <script type="module" defer src="/js/home-feed.mjs"></script>
+  <script type="module" defer src="/js/utils.mjs/logout.mjs"></script>
 </head>
 <body>
   <div class="page-wrapper">
     <header class="page-header">
-      <div class="constrain-container row justify-sb">
-        <a href="../index.html" style="margin: auto 0px auto 20px; color: white;" style="cursor: pointer;">
-          <i class="fa-solid fa-right-from-bracket fa-lg"></i>
-        </a>
-        <img src="../images/Logo-second.png" class="logo-header">
-      
-      </div>
+      <nav class="constrain-container row justify-sb align-items-center">
+        <ul class="pad-0">
+          <li>
+            <a id="logoutButton" href="../index.html" class="btn-icon">
+              <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+            </a>
+          </li>
+        </ul>
+        <img src="../images/Logo-second.png" class="logo-header" alt="Tangy logo">
+      </nav>
     </header>
     <main class="page-main">
+      <h1 class="visually-hidden">Feed</h1>
       <div class="feed-info-box">
         <div class="constrain-content col">
           <form id="createPostForm" class="width-responsive mt-2">
             <div class="d-flex col">
-              <input id="postTitle" aria-label="Post title" placeholder="Title" class="search">
-              <textarea id="postContent" aria-label="Share your thoughts" class="search text-input" placeholder="Share your thoughts"></textarea>
+              <input id="postTitle" aria-label="Post title" placeholder="Title" class="search" required>
+              <textarea id="postContent" aria-label="Share your thoughts" class="search text-input" placeholder="Share your thoughts" required></textarea>
               <button type="submit" class="btn-create">Create post</button>
             </div>
           </form>
-          <hr class="mb-3" style="border: 1px solid rgba(128, 128, 128, 0.261); width: 100%;">
-          <div class="row" style="width: 100%;">
-            <input id="searchInput" placeholder="Search" class="search width-responsive" style="margin-right: 25px;">
+          <hr class="mb-3">
+          <div class="row width-responsive">
+            <input id="searchInput" placeholder="Search" class="search width-responsive mr-3">
             <select id="mySelect" aria-label="Search" class="search">
               <option>Newest</option>
               <option>Oldest</option>
             </select>
           </div>
+          <div id="errorMessage" class="error-message mb-2"></div>
         </div>        
       </div>
       <div id="posts-display" class="constrain-content">
       </div>
     </main>
-    <footer class="page-footer">
-
-    </footer>    
+    <footer class="page-footer d-flex align-items-center justify-center">
+      <p>© 2020 Copyright: Tangy</p>
+    </footer> 
   </div>
-
 </body>
 </html>
