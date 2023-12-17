@@ -3,40 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login to Tangy, your place for fresh and exciting socializing.">
   <title>Login | Tangy</title>
   <link rel="stylesheet" href="./dist/css/index.css">
   <link rel="icon" type="image/x-icon" href="./images/Favicon-img.png">
+  <script type="module" defer src="/js/handlers/login.mjs"></script>
 </head>
 <body>
   <div class="page-wrapper">
-    <header class="page-header">
-      <div class="constrain-container row justify-sb">
-        <p class="justify-left">left</p>
-        <img src="./images/Logo-second.png" class="logo-header justify-center mt-1">
-        <p class="justify-right">right</p>
-      </div>
-    </header>
-    <main class="page-main">
+    <main class="page-main align-items-center justify-center">
+      <h1 class="visually-hidden">Login</h1>
       <div class="constrain-container-form col">
         <img src="/images/Logo-main.png" class="logo-login mb-3">
-        <form class="col">
+        <form class="col" id="loginForm">
           <div class="col">
-            <label for="name">Email:</label>
-            <input name="name" type="text" class="input mt-1 mb-2">
+            <label for="email">Email:</label>
+            <input id="email" name="email" type="email" class="input mt-1 mb-2">
           </div>
           <div class="col">
             <label for="password">Password:</label>
-            <input name="password" type="text" class="input mt-1 mb-4">
+            <input name="password" type="password" class="input mt-1" required>
           </div>
-          <button class="btn-primary mb-2">Login</button>
-          <button class="btn-primary-outlined">Register</button>
-        </form>          
+          <div id="errorMessage" class="error-message mt-2"></div>
+          <button class="btn-primary mt-4 mb-2">Login</button>
+        </form>
+        <button class="btn-primary-outlined" onclick="location.href='register/index.html'">Register</button>         
       </div>
-    </main>
-    <footer class="page-footer">
-
-    </footer>    
+    </main>    
   </div>
-
 </body>
 </html>

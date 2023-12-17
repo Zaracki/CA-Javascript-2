@@ -3,6 +3,13 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+
+.constrain-container::after {
+  content: '';
+  margin-left: 20px;
+}
+
+
 .constrain-container-form {
   width: 100%;
   height: 100%;
@@ -20,6 +27,11 @@
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+}
+
+.text-break {
+  word-break: break-word;
+  overflow-wrap: break-word ;
 }
 
 .col {
@@ -57,6 +69,26 @@
   align-items: center;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.error-message {
+  display: none;
+}
+
+.error-message:empty {
+  display: none;
+}
+
 // Width & heights
 
 .width-responsive {
@@ -81,6 +113,10 @@
   margin-top: 20px;
 }
 
+.mt-4 {
+  margin-top: 30px;
+}
+
 // Margin-bottom
 
 .mb-1 {
@@ -97,4 +133,51 @@
 
 .mb-4 {
   margin-bottom: 30px;
+}
+
+// Margin-right
+
+.mr-1 {
+  margin-right: 5px;
+}
+
+.mr-2 {
+  margin-right: 10px;
+}
+
+.mr-3 {
+  margin-right: 20px;
+}
+
+.mr-4 {
+  margin-right: 30px;
+}
+
+// Margin-left
+
+.ml-1 {
+  margin-left: 5px;
+}
+
+.ml-2 {
+  margin-left: 10px;
+}
+
+.ml-3 {
+  margin-left: 20px;
+}
+
+.ml-4 {
+  margin-left: 30px;
+}
+
+// Margin
+
+.ma-0 {
+  margin: 0px;
+}
+
+// Padding
+.pad-0 {
+  padding: 0px;
 }

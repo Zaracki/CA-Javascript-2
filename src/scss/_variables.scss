@@ -4,10 +4,14 @@ $primary: #E69023;
 $white: #fff;
 $black: #000000;
 $lightgrey: #F8F8F8;
+$red: #ff0f0f;
+$background-gradient: linear-gradient(180deg, #E69023 0%, #BF5002 100%), #FFF;
 
 // Hover
 
 $lighten-primary: lighten($primary, 5);
+$lighten-red: lighten($red, 9);
+$darken-white: darken($white, 5);
 
 // Width
 

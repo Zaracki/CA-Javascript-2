@@ -19,6 +19,7 @@
 
 .search {
   @include input-field;
+  padding-right: 5px;
 }
 
 .text-input {
@@ -26,7 +27,7 @@
   resize: none;
   height: 100px;
   padding-top: 5px;
-  font-family: Helvetica, sans-serif; //notice
+  font-family: Helvetica, sans-serif;
 }
 
 

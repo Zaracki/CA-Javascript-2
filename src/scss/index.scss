@@ -13,7 +13,7 @@
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
   font-family: Helvetica, sans-serif;
 }
 
@@ -30,28 +30,49 @@ h3 {
 h3 {
   font-size: 12px;
 }
+ul {
+  list-style: none;
+}
+
+hr {
+  border: 1px solid rgba(128, 128, 128, 0.261);
+  width: 100%;
+}
 
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background: linear-gradient(180deg, #E69023 0%, #BF5002 100%), #FFF;
+  min-height: 100%;
+  background: $background-gradient;
 }
 
 .page-header {
   background-color: $primary;
   height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .page-footer {
-  background-color: white;
+  background-color: $white;
   height: 50px;
+  margin-top: 40px;
 }
 
 .page-main {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
+
 
 .feed-info-box {
   background-color: $lightgrey;
+}
+
+.post-link {
+  text-decoration: none;
+  color: inherit;
 }
