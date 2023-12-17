@@ -21,7 +21,7 @@ export async function makeRequest(
 
     return await fetch(url, fetchOptions);
   } catch (error) {
-    console.error("Something went wrong..")
+    throw error;
   }
 }
 
