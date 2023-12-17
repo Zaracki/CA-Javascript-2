@@ -2,6 +2,7 @@ import { makeRequest } from "../fetch.mjs";
 import { LOGIN_API_URL, POSTS_API_URL } from "../constants.mjs";
 import { addToLocalStorage } from "../utils.mjs/localStorage.mjs";
 import { displayPosts } from "../utils.mjs/displayPost.mjs";
+import { displayErrorMessage } from "../utils.mjs/displayError.mjs";
 
 const form = document.querySelector("#loginForm");
 
@@ -30,7 +31,7 @@ async function loginUser(user) {
     addToLocalStorage("username", username);
     window.location.href = "/feed";
   } catch (error) {
-    console.log("Failed Login");
+    displayErrorMessage("Username or password is wrong")
   }
 };
 

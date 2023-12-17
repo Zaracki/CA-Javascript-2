@@ -1,5 +1,8 @@
 import { POSTS_API_URL } from "./constants.mjs";
 import { makeRequest } from "./fetch.mjs";
+import { generateSinglePostHtml } from "./utils.mjs/generateSinglePost.mjs";
+
+const resultsContainer = document.querySelector("#postContainer");
 
 function getIdFromUrl() {
   const searchParams = new URLSearchParams(window.location.search);
@@ -8,40 +11,6 @@ function getIdFromUrl() {
     return id;
   }
   return null;
-}
-
-const resultsContainer = document.querySelector("#postContainer");
-
-function generateSinglePostHtml(post) {
-  const {title, body, media} = post;
-
-  const postCard = document.createElement("div");
-  postCard.className = "card mt-3";
-
-  const postContain = document.createElement("div");
-  postContain.className = "col d-flex justify-left mb-1";
-
-  const postTitle = document.createElement("h2")
-  postTitle.className = "mb-1 text-break";
-  postTitle.textContent = title;
-
-  const postBody = document.createElement("p")
-  postBody.className = "mt-0 mb-1 text-break";
-  postBody.textContent = body;
-
-  postContain.appendChild(postTitle);
-  postContain.appendChild(postBody);
-  
-  const image = document.createElement("img")
-  if (media) {
-    image.src = media;
-    image.className = "user-post-img";
-    postContain.appendChild(image);
-  }
-
-  postCard.appendChild(postContain);
-
-  return postCard;
 }
 
 async function getSinglePost(id) {

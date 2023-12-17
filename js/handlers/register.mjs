@@ -1,5 +1,6 @@
 import { makeRequest } from "../fetch.mjs";
 import { REGISTER_API_URL } from "../constants.mjs";
+import { displayErrorMessage } from "../utils.mjs/displayError.mjs";
 
 const form = document.querySelector("#registerForm");
 
@@ -10,10 +11,15 @@ async function registerUser(user) {
       method: "POST",
       body: postBody,
     });
-    window.location.href = "../index.html";
-  } catch (error) {
+    console.log(myData);
+    if ( myData !== undefined) {
+      window.location.href = "../index.html";
+    } else {
+      displayErrorMessage("Something ")
+    };
+  } catch(error) {
     // Handle the error here
-    console.error("Error registering user:", error);
+    displayErrorMessage("something went wrong " + error.toString())
   }
 }
 form.addEventListener("submit", (event) => {
